@@ -16,9 +16,7 @@ const playerProperty = {
 };
 
 const enemyProperty = {
-  width: 100,
-  height: 100,
-  speed: 1,
+  ...playerProperty,
   color: "black",
   position: {
     x: 300,

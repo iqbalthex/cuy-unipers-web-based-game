@@ -1,17 +1,10 @@
-class Player {
-  constructor(props) {
-    this.height = props.height;
-    this.width = props.width;
-    this.speed = props.speed;
-    this.color = props.color;
-    this.position = {
-      x: props.position.x,
-      y: props.position.y,
-    };
-  }
-
-  create() {
-    board.fillStyle = this.color;
-    board.fillRect(this.position.x, this.position.y, this.width, this.height);
+class Player extends GameObject {
+  constructor({ height, width, speed, color, position: { x, y } }) {
+    super();
+    this.height = height;
+    this.width = width;
+    this.speed = speed;
+    this.color = color;
+    this.position = { x, y };
   }
 }

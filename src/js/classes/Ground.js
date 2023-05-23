@@ -1,12 +1,9 @@
-class Ground {
+class Ground extends GameObject {
   constructor(width, height, color) {
+    super();
     this.width  = width;
     this.height = height;
     this.color  = color;
-  }
-
-  create() {
-    board.fillStyle = this.color;
-    board.fillRect(0, 0, this.width, this.height);
+    this.position = { x: 0, y: 0 };
   }
 }
