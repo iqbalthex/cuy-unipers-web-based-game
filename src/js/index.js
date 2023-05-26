@@ -26,7 +26,7 @@ const enemyProperty = {
   },
 };
 
-const ground = new Ground(canvas.width, canvas.height, "lightblue");
+const ground = new Ground("./src/assets/bg.jpg", canvas.width, canvas.height);
 const player = new Player(playerProperty);
 const enemy  = new Player(enemyProperty);
 
