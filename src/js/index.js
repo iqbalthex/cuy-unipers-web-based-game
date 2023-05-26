@@ -7,7 +7,7 @@ canvas.height = DISPLAY_PIXEL.height * ASPECT_RATIO.height;
 const playerProperty = {
   width: 100,
   height: 100,
-  speed: 1,
+  speed: 10,
   color: "tomato",
   position: {
     x: 200,
@@ -40,5 +40,9 @@ function animate() {
 
   window.requestAnimationFrame(animate);
 }
+
+window.addEventListener("keydown", function (callback) {
+  player.movement(callback.key);
+});
 
 animate();
