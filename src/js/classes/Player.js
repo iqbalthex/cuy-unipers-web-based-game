@@ -8,11 +8,8 @@ class Player {
       x: props.position.x,
       y: props.position.y,
     };
-    this.velocity = {
-      x: 0,
-      y: 0,
-    };
-    this.heightJump = 100;
+    this.velocity = { x: 1, y: 1 };
+    this.jumpPower = 100;
     this.gravity = 0.5;
   }
 
@@ -22,22 +19,19 @@ class Player {
   }
 
   // kinematic physic equation
-  // heightJump = vi^2 / (2 * gravity)
+  // h = vi^2 / (2 * g)
   // vi = sqrt(2 * g * h)
 
-  movement(direction) {
+  move(direction) {
     switch (direction) {
       case "ArrowUp":
-        this.velocity.y = -Math.sqrt(2 * this.gravity * this.heightJump);
+        this.velocity.y = -(Math.sqrt(2 * this.gravity * this.jumpPower));
         break;
       case "ArrowLeft":
         this.velocity.x = -1 * this.speed;
         break;
       case "ArrowRight":
         this.velocity.x = 1 * this.speed;
-        break;
-      default:
-        break;
     }
   }
 
@@ -48,7 +42,7 @@ class Player {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
-    if (player.position.y > ground) {
+    if (this.position.y > ground) {
       this.position.y = ground;
     }
   }

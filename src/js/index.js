@@ -41,8 +41,8 @@ function animate() {
   window.requestAnimationFrame(animate);
 }
 
-window.addEventListener("keydown", function (callback) {
-  player.movement(callback.key);
+window.addEventListener("keydown", function (event) {
+  player.move(event.key);
 });
 
 animate();
