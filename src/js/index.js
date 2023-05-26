@@ -42,7 +42,19 @@ function animate() {
 }
 
 window.addEventListener("keydown", function (callback) {
-  player.movement(callback.key);
+  switch (callback.key) {
+    case "ArrowUp":
+      player.jump();
+      break;
+    case "ArrowLeft":
+      player.moveLeft();
+      break;
+    case "ArrowRight":
+      player.moveRight();
+      break;
+    default:
+      break;
+  }
 });
 
 animate();

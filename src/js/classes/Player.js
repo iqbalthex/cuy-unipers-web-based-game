@@ -25,24 +25,21 @@ class Player {
   // heightJump = vi^2 / (2 * gravity)
   // vi = sqrt(2 * g * h)
 
-  movement(direction) {
-    switch (direction) {
-      case "ArrowUp":
-        this.velocity.y = -Math.sqrt(2 * this.gravity * this.heightJump);
-        break;
-      case "ArrowLeft":
-        this.velocity.x = -1 * this.speed;
-        break;
-      case "ArrowRight":
-        this.velocity.x = 1 * this.speed;
-        break;
-      default:
-        break;
-    }
+  jump() {
+    this.velocity.y = -Math.sqrt(2 * this.gravity * this.heightJump);
+  }
+
+  moveLeft() {
+    this.velocity.x = -1 * this.speed;
+  }
+
+  moveRight() {
+    this.velocity.x = 1 * this.speed;
   }
 
   update() {
     const ground = canvas.height - this.height;
+    const rightWall = canvas.width - this.width;
 
     this.velocity.y += this.gravity;
     this.position.x += this.velocity.x;
@@ -50,6 +47,15 @@ class Player {
 
     if (player.position.y > ground) {
       this.position.y = ground;
+      this.jump();
+    }
+
+    if (this.position.x > rightWall) {
+      this.velocity.x *= -1;
+    }
+
+    if (this.position.x < 0) {
+      this.velocity.x *= -1;
     }
   }
 }
