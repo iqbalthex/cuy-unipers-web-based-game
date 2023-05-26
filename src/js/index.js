@@ -30,6 +30,15 @@ const ground = new Ground(canvas.width, canvas.height, "lightblue");
 const player = new Player(playerProperty);
 const enemy  = new Player(enemyProperty);
 
-ground.create();
-player.create();
-enemy.create();
+
+function animate() {
+  ground.create();
+  player.create();
+  enemy.create();
+
+  player.update();
+
+  window.requestAnimationFrame(animate);
+}
+
+animate();

@@ -14,4 +14,8 @@ class Player {
     board.fillStyle = this.color;
     board.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
+
+  update() {
+    this.position.x += 1;
+  }
 }
